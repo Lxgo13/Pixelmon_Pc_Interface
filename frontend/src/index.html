@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <script src="createSidebar.js"></script>
+    <script src="changePages.js"></script>
+    <script src="displayPokemon/displayPage.js"></script>
+</head>
+
+<body>
+    <div class="h-screen flex flex-col">
+        <!-- topbar-->
+        <div class="bg-black w-screen h-16">
+            <img class="h-16" src="https://crafatar.com/avatars/17aaddbdcb534e5cbbdfc9acafe20baa?size=32&overlay"
+                alt="logo">
+        </div>
+        <!-- Bottom -->
+        <div class="h-full flex flex-grow">
+            <!-- sidebar -->
+            <div id="sidebar" class="bg-slate-600 w-16 flex flex-col items-center p-4">
+            </div>
+            <!-- Pc interface -->
+            <div class="bg-gray-700 h-auto flex flex-col items-center p-4">
+                <button
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-52 mb-4 flex items-center  justify-center ">
+                    <span id="beforeText" class="mr-8">
+                        <img src="../assets/Controls/arrow_left.svg" class="w-8">
+                    </span>
+                    <p id="currentPage">Page 1</p>
+                    <span id="afterText" class=" ml-8">
+                        <img src="../assets/Controls/arrow_right.svg" class="w-8">
+                    </span>
+                </button>
+                <div class="bg-white grid grid-cols-6 grid-rows-5 gap-2 p-2 rounded-md" id="pc1">
+                </div>
+            </div>
+            <div class="bg-slate-500 border-gray-400 border-4">
+                <!-- non combat stats-->
+                <div class="bg-slate-300 flex items-center">
+                    <img class="ml-0.5" src="../assets/Pokeballs/master_ball.png" alt="Your Image">
+                    <p class="ml-2">Charmander</p>
+                    <img src="../Assets/Gender/male.png" class="size-">
+                </div>
+                <div class="flex bg-blue-600">
+                    <!-- dex number-->
+                    <p class="ml-2">No. 4</p>
+                    <!-- name -->
+                    <p class="ml-3">Charmander</p>
+                </div>
+                <!-- types -->
+                <div class="flex">
+                    <img src="../Assets/Types/Dark.png" class="size-8">
+                    <img src="../Assets/Types/Fire.png" class="size-8">
+                </div>
+                <!-- combat stats -->
+                <div class="grid grid-cols-4 grid-rows-6 gap-2" id="combatStats">
+                </div>
+                <!-- held item & ability -->
+                <div class="mt-8 flex">
+                    <p>Ability</p>
+                    <p class="ml-14">Pressure</p>
+                </div>
+                <div class="flex">
+                    <p>Held item</p>
+                    <p class="ml-8">12</p>
+                </div>
+                <div class="flex">
+                    <p>Size</p>
+                    <p class="ml-16">enormous</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

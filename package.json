@@ -1,0 +1,19 @@
+{
+  "name": "pixelmon_pc_interface",
+  "version": "1.0.0",
+  "description": "Pixelmon pc Interface App",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexander Gass",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^29.1.5",
+    "tailwindcss": "^3.4.1"
+  },
+  "dependencies": {
+    "prismarine-nbt": "^2.5.0"
+  }
+}
