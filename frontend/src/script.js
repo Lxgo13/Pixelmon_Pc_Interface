@@ -51,12 +51,17 @@ function addButtons2Pc1() {
 
         button.className = "bg-gray-200 size-10 flex justify-center items-center rounded-md";
         button.id = i;
+        // TODO: create the click event to display pokemon and initialize here
+        // button.addEventListener('click',);
 
         // Add button to the container
         container.appendChild(button);
-
     }
 }
+function DisplayPokemon(){
+    
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     addButtons2Pc1();
     createCombatStatsHeader();

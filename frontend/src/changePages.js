@@ -1,28 +1,32 @@
 document.addEventListener('DOMContentLoaded', function () {
+    displayPage(1);
     document.getElementById('beforeText').addEventListener('click', function (e) {
         e.stopPropagation();
-        var currentPage = document.getElementById("currentPage").innerText.substring(5);
+        let currentPage = document.getElementById("currentPage").innerText.substring(5);
+        let newPage;
         if (currentPage > 1) {
-            document.getElementById("currentPage").innerText = "Page " + (parseInt(currentPage) - 1);
-            // TODO: get new page by index
+            newPage = (parseInt(currentPage) - 1);
+            document.getElementById("currentPage").innerText = "Page " + newPage;
         }
         else {
-            document.getElementById("currentPage").innerText = "Page " + 30;
+            newPage = 30;
+            document.getElementById("currentPage").innerText = "Page " + newPage;
         }
-        // refresh page
+        displayPage(newPage);
     });
 
     document.getElementById('afterText').addEventListener('click', function (e) {
         e.stopPropagation();
-        var currentPage = document.getElementById("currentPage").innerText.substring(5);
+        const currentPage = document.getElementById("currentPage").innerText.substring(5);
+        let newPage;
         if (currentPage < 30) {
-            const newPage = (parseInt(currentPage) + 1);
+            newPage = (parseInt(currentPage) + 1);
             document.getElementById("currentPage").innerText = "Page " + newPage;
-            displayPage(newPage);
         } else {
-            document.getElementById("currentPage").innerText = "Page " + 1;
+            newPage = 1;
+            document.getElementById("currentPage").innerText = "Page " + newPage;
         }
-        // refresh page
+        displayPage(newPage);
     });
 });
 
