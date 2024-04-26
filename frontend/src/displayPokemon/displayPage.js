@@ -1,7 +1,6 @@
-
 function displayPage(pageNumber) {
     // gets the pc from the local storage
-    const pc = JSON.parse(window.localStorage.getItem('pc'));
+    const pc = globalPc;
     const page = pc.boxes[pageNumber - 1];
     clearPage();
     // loop through all buttons from the page
