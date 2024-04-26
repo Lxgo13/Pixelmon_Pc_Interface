@@ -35,7 +35,7 @@ function getCurrentPageNumber() {
 
 }
 
-
 window.electronAPI.onFileLoaded(value => {
     window.localStorage.setItem('pc', value);
+    checkForAvailablePc();
 })
