@@ -26,8 +26,27 @@ function checkForAvailablePc() {
 function showStatsFromPokemon(pageNumber, pokemonNumber) {
     const clickedPokemon = globalPc.boxes[pageNumber - 1].pokemon[pokemonNumber];
     const theName = document.getElementById('dexNumber');
-    theName.innerText = 'No. '+clickedPokemon.ndex;
+    theName.innerText = 'No. ' + clickedPokemon.ndex;
+    setPokeball(clickedPokemon.CaughtBall);
+    setGender(clickedPokemon.Gender);
+    setStats();
 }
+function setGender(id) {
+    const image = document.getElementById('gender');
+    let gender;
+    switch (id) {
+        // male
+        case 0:
+            gender = 'male';
+            break;
+        // female
+        case 1:
+            gender = 'female';
+            break;
+    }
+    image.src = '../assets/gender/' + gender + '.svg';
+}
+
 
 function OnPcItemClicked(e) {
     e.stopPropagation();
