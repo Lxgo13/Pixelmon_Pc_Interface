@@ -29,8 +29,31 @@ function showStatsFromPokemon(pageNumber, pokemonNumber) {
     theName.innerText = 'No. ' + clickedPokemon.ndex;
     setPokeball(clickedPokemon.CaughtBall);
     setGender(clickedPokemon.Gender);
-    setStats();
+    setStats(clickedPokemon);
 }
+
+function setStats(theClickedPokemon) {
+    const statsDiv = document.getElementById('combatStats');
+    // 1 = Stats, 2 = IV, 3 = EV
+    // 4 = HP, 8 = Attack, always +4...
+    for (let currentColumn = 1; currentColumn <= 3; currentColumn++) {
+        let currentStatType = statsDiv.children[currentColumn].innerText;
+        let currentStat;
+        // 
+        for (let currentRow = 4; currentRow <= 24; currentRow += 4) {
+
+            currentStat = statsDiv.children[currentRow].id;
+            const theStatValue = theClickedPokemon[currentStatType + currentStat];
+
+            const currentCell = statsDiv.children[currentRow + currentColumn];
+            currentCell.innerText = theStatValue;
+        }
+
+    }
+
+}
+
+
 function setGender(id) {
     const image = document.getElementById('gender');
     let gender;
@@ -62,9 +85,16 @@ function createStatsParagraph(containerName, paragraphText) {
     container.appendChild(paragraph);
 
 }
-function createCombatStatsLine(containerName, statName) {
+function createCombatStatsLine(containerName, statName, idName) {
     const container = document.getElementById(containerName);
     const nameParagraph = document.createElement("p");
+    let paragraphID;
+    if (idName !== undefined) {
+        paragraphID = idName;
+    } else {
+        paragraphID = statName;
+    }
+    nameParagraph.id = paragraphID;
     nameParagraph.innerHTML = statName;
     container.appendChild(nameParagraph);
     container.appendChild(createPForStats(statName + "_Stat"));
@@ -76,8 +106,8 @@ function createCombatStats() {
     createCombatStatsLine("combatStats", "HP");
     createCombatStatsLine("combatStats", "Attack");
     createCombatStatsLine("combatStats", "Defense");
-    createCombatStatsLine("combatStats", "Sp. Atk");
-    createCombatStatsLine("combatStats", "Sp. Def");
+    createCombatStatsLine("combatStats", "Sp. Atk", 'SpecialAttack');
+    createCombatStatsLine("combatStats", "Sp. Def", 'SpecialDefense');
     createCombatStatsLine("combatStats", "Speed");
 }
 function createPForStats(id) {

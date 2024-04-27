@@ -15,6 +15,8 @@ module.exports = function (json) {
       (attribute) => (pokemon[attribute] = pokemonDTO[attribute]?.value),
     );
     pokemon.slot = element.replace("pc", "");
+    pokemon.renameProperties('IVSpAtt','IVSpecialAttack');
+    pokemon.renameProperties('IVSpDef','IVSpecialDefense');
     pokemonArray.push(pokemon);
   });
   return pokemonArray;
