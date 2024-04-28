@@ -5,7 +5,7 @@ class Pokemon {
     if (this.hasOwnProperty(oldName)) {
       this[newName] = this[oldName];
     } else {
-      console.log(`Property ${oldName} does not exist.`);
+      console.log('Property ${oldName} does not exist.');
     }
   }
 }

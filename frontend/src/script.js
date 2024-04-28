@@ -55,7 +55,18 @@ function setStats(theClickedPokemon) {
 
 
 function setGender(id) {
-    const image = document.getElementById('gender');
+    // <img id="gender" src="../Assets/Gender/male.svg" class="size-5">
+    let image = document.getElementById('gender');
+    // image does not exist
+    // standart, or last click was none gender
+    if (image === null) {
+        // create image and add 
+        image = document.createElement('img');
+        image.id = 'gender';
+        image.className = 'size-5';
+
+
+    }
     let gender;
     switch (id) {
         // male
@@ -66,8 +77,25 @@ function setGender(id) {
         case 1:
             gender = 'female';
             break;
+        case 2:
+            gender = null;
+            break;
     }
-    image.src = '../assets/gender/' + gender + '.svg';
+    if (gender !== null) {
+        image.src = '../assets/gender/' + gender + '.svg';
+        // div
+        const div = document.getElementById('nonCombatStats');
+        div.appendChild(image);
+
+    }
+    else {
+        if (image !== null) {
+            image.remove();
+        }
+    }
+
+
+
 }
 
 
