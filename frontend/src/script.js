@@ -25,11 +25,23 @@ function checkForAvailablePc() {
 
 function showStatsFromPokemon(pageNumber, pokemonNumber) {
     const clickedPokemon = globalPc.boxes[pageNumber - 1].pokemon[pokemonNumber];
-    const theName = document.getElementById('dexNumber');
-    theName.innerText = 'No. ' + clickedPokemon.ndex;
-    setPokeball(clickedPokemon.CaughtBall);
-    setGender(clickedPokemon.Gender);
-    setStats(clickedPokemon);
+    // clicked pc item is empty no pokemon in the clicked slot
+    if (clickedPokemon === null) {
+        // TODO: emtpy the stats
+    } else {
+        const theName = document.getElementById('dexNumber');
+        theName.innerText = 'No. ' + clickedPokemon.ndex;
+        setPokeball(clickedPokemon.CaughtBall);
+        setGender(clickedPokemon.Gender);
+        setStats(clickedPokemon);
+        displaySize(clickedPokemon.Growth);
+    }
+}
+function displaySize(thePokemonSize){
+    const theSizeAsString = getSizeName(thePokemonSize);
+    const theParagraph = document.getElementById('size');
+    theParagraph.innerText = theSizeAsString;
+
 }
 
 function setStats(theClickedPokemon) {
@@ -77,6 +89,7 @@ function setGender(id) {
         case 1:
             gender = 'female';
             break;
+        // none gender, legendaries etc.
         case 2:
             gender = null;
             break;
