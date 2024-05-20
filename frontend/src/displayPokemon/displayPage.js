@@ -1,7 +1,7 @@
 function displayPage(pageNumber) {
     // gets the pc from the local storage
     const pc = globalPc;
-    if(pc === null){
+    if (pc === null) {
         return;
     }
     const page = pc.boxes[pageNumber - 1];
@@ -33,6 +33,14 @@ function clearPage() {
 
 function getAssetFile(pokemon) {
     let dexNumber = pokemon.ndex.toString();
+    let form = pokemon.Variant;
+    let palette = pokemon.palette;
+    if (palette != "shiny") {
+        palette = "none";
+    }
+    if (form == '') {
+        form = "base";
+    }
     if (dexNumber.length < 3) {
         if (dexNumber.length < 2) {
             dexNumber = '00' + dexNumber;
@@ -40,6 +48,7 @@ function getAssetFile(pokemon) {
             dexNumber = '0' + dexNumber;
         }
     }
-    const filePath = '../assets/pokemon/' + dexNumber + '.png';
+    
+    const filePath = '../assets/pokemon/' + dexNumber + '/' + form + '/' + palette + '/sprite.png';
     return filePath;
 }

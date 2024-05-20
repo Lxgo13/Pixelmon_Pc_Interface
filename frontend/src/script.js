@@ -35,9 +35,16 @@ function showStatsFromPokemon(pageNumber, pokemonNumber) {
         setGender(clickedPokemon.Gender);
         setStats(clickedPokemon);
         displaySize(clickedPokemon.Growth);
+        setTypes(clickedPokemon.types);
+        setName(clickedPokemon.name);
     }
 }
-function displaySize(thePokemonSize){
+function setName(name){
+    document.getElementById('pokemonName').innerText = name;
+    document.getElementById('customName').innerText = name;
+
+}
+function displaySize(thePokemonSize) {
     const theSizeAsString = getSizeName(thePokemonSize);
     const theParagraph = document.getElementById('size');
     theParagraph.innerText = theSizeAsString;
@@ -61,6 +68,31 @@ function setStats(theClickedPokemon) {
             currentCell.innerText = theStatValue;
         }
 
+    }
+
+}
+function setTypes(types) {
+    const typesdiv = document.getElementById('types');
+    if (typesdiv.hasChildNodes()) {
+        while (typesdiv.firstChild) {
+            typesdiv.removeChild(typesdiv.firstChild);
+        }
+    }
+
+    types.forEach(element => {
+        const image = document.createElement('img');
+        image.classList = "size-8";
+        image.src = '../assets/types/' + element + ".png";
+        typesdiv.appendChild(image);
+    });
+}
+function clearPage() {
+    for (let index = 0; index < 30; index++) {
+        const aButton = document.getElementById(index);
+        if (aButton.hasChildNodes()) {
+            const image = aButton.firstChild;
+            aButton.removeChild(image);
+        }
     }
 
 }
