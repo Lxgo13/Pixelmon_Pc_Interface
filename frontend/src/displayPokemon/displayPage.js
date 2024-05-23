@@ -1,6 +1,5 @@
-function displayPage(pageNumber) {
+export function displayPage(pc,pageNumber) {
     // gets the pc from the local storage
-    const pc = globalPc;
     if (pc === null) {
         return;
     }
